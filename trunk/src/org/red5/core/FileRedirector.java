@@ -1,12 +1,11 @@
 package org.red5.core;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
-
-
-import org.apache.log4j.Logger;
 import org.red5.core.blacklist.BlackList;
 import org.red5.core.encryption.KeyGen;
+import org.red5.core.encryption.WebServiceKeyPair;
 import org.red5.core.filenameresolver.AFileNameResolver;
 import org.red5.core.filenameresolver.CrypticFileNameResolver;
 import org.red5.core.filenameresolver.NormalFileNameResolver;
@@ -90,7 +89,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		BlackList.bannehours = getBannTime();
 		BlackList.Tries = getTries();
 
-		org.red5.core.encryption.WebServiceKeyPair.secret = getSecret();
+		WebServiceKeyPair.secret = getSecret();
 		log.info( "Succesfully loaded with Secret");
 		System.out.println("Started");
 		if (this.secured) {

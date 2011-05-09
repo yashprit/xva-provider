@@ -19,7 +19,7 @@ public class KeyGen implements Runnable {
 	private KeyGen() {
 		new Thread(this).start();
 	}
-
+ 
 	public static KeyGen getInstance() {
 		if (instance == null)
 			instance = new KeyGen();
