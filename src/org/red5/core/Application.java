@@ -14,7 +14,7 @@
 /* 41 */     Endpoint.publish(
 /* 42 */       "http://localhost:5080/XVAProvider/XVAProviderService", 
 /* 43 */       new XVAProviderService());
-/*    */ 
+/*    */ System.out.println("Started");
 /* 45 */     return super.appStart(arg0);
 /*    */   }
 /*    */ 

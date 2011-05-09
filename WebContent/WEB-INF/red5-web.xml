@@ -34,5 +34,20 @@
 	<bean id="web.handler" 
 	    class="org.red5.core.Application" 
 		singleton="true" />
+		
+	<!-- 	private boolean secured;
+	private String secret;
+	private int liveTime;
+	private int bannTime;
+	private int Tries; -->	
+	<bean id="streamFilenameGenerator" class="org.red5.core.FileRedirector">
+	 <property name="dirs">
+	 	 <value>video:=/Users/philippklose/;video2:=/Users/philippklose</value>
+	 </property>
+	 <property name="liveTime" value="30"></property>
+	 <property name="bannTime" value="10"></property>
+	 <property name="Tries" value="5"></property>
+	 <property name="secured" value="true"></property>
+	</bean>
  
 </beans>
