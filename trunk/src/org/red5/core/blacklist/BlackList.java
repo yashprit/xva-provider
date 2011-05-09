@@ -4,9 +4,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.logging.Logger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 
 
@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 
 
 public class BlackList implements Runnable {
-	private static final Logger log = LoggerFactory.getLogger(BlackList.class.getName());
+	private static final Logger log = Logger.getLogger(BlackList.class.getName());
 	private HashMap<String, Date> banned = new HashMap<String,Date>(10000);
 	private HashMap<String, Integer> warned = new HashMap<String,Integer>(10000);
 

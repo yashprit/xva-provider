@@ -2,10 +2,12 @@ package org.red5.core.encryption;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.logging.Logger;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
-import org.apache.log4j.Logger;
+
 
 public class KeyGen implements Runnable {
 	private static final Logger log = Logger.getLogger(KeyGen.class.getName());

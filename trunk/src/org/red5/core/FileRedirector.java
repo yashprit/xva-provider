@@ -84,6 +84,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		}
 
 		KeyGen.SeksToSleep = getLiveTime();
+		log.info("Seks to sleep:="+ getLiveTime());
 		KeyGen.getInstance();
 
 		BlackList.bannehours = getBannTime();
@@ -121,6 +122,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 			IConnection currentConnection = Red5.getConnectionLocal();
 			BlackList.getInstance()
 					.warnIp(currentConnection.getRemoteAddress());
+			currentConnection.getScope().disconnect(currentConnection);
 			currentConnection.close();
 			log.info("Closing Connection and Warning Client");
 		}

@@ -44,6 +44,7 @@
 	 <property name="dirs">
 	 	 <value>video:=/Users/philippklose/;video2:=/Users/philippklose</value>
 	 </property>
+	 <property name="secret" value="Hallo!"></property>
 	 <property name="liveTime" value="30"></property>
 	 <property name="bannTime" value="10"></property>
 	 <property name="Tries" value="5"></property>
