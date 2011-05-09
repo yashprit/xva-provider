@@ -14,7 +14,13 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/Users/philippklose/Libs/libs/java/jaxws.jar"/>
-	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/log4j-over-slf4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/org.springframework.core-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/log4j-over-slf4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/com.springsource.slf4j.api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/logback-classic-0.9.26.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/logback-core-0.9.26.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/jcl-over-slf4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/jul-to-slf4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/com.springsource.slf4j.bridge-1.6.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
