@@ -30,13 +30,13 @@ public class KeyGen implements Runnable {
 
 	public String decrypt(byte[] secret) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(2, this.key);
+		cipher.init(Cipher.DECRYPT_MODE, this.key);
 		return new String(cipher.doFinal(secret));
 	}
 
 	public byte[] encrypt(String path) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES");
-		cipher.init(1, this.key);
+		cipher.init(Cipher.ENCRYPT_MODE, this.key);
 		return cipher.doFinal(path.getBytes());
 	}
 
@@ -56,7 +56,7 @@ public class KeyGen implements Runnable {
 				keygen.init(random);
 				setKey(keygen.generateKey());
 
-				log.info("Waitning for new Key... for " + Timeout.longValue()
+				log.info("Waiting for new Key... for " + Timeout.longValue()
 						* SeksToSleep);
 				Thread.sleep(Timeout.longValue() * SeksToSleep);
 				continue;
