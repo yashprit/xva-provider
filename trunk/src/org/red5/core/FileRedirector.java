@@ -88,8 +88,9 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		KeyGen.getInstance();
 
 		BlackList.bannehours = getBannTime();
+		log.info("Bannhours :="+ this.getBannTime());
 		BlackList.Tries = getTries();
-
+		log.info("Tries till bann:= "+this.getTries());
 		WebServiceKeyPair.secret = getSecret();
 		log.info( "Succesfully loaded with Secret");
 		System.out.println("Started");

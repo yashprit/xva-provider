@@ -1,5 +1,6 @@
 package org.red5.core.filenameresolver;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
@@ -17,7 +18,8 @@ public class CrypticFileNameResolver extends AFileNameResolver {
 
 	public String getFileName(String inputString) {
 		try {
-			String path = KeyGen.getInstance().decrypt(inputString.getBytes());
+			byte[] result = this.transformToSignedByte(inputString);
+			String path = KeyGen.getInstance().decrypt(result);
 			return path;
 		} catch (Exception e) {
 			IConnection currentConnection = Red5.getConnectionLocal();
@@ -25,5 +27,18 @@ public class CrypticFileNameResolver extends AFileNameResolver {
 			log.info("Invalid Password");
 		}
 		return null;
+	}
+	
+	private byte[] transformToSignedByte (String input){
+		final ArrayList<Byte> list = new ArrayList<Byte>();
+        for(int i=0;i<input.length()/2;i++){
+            final String element = input.substring(i*2, i*2+2);
+           final int k = Integer.parseInt(element, 16);
+          final  byte val = (byte)(k-Byte.MAX_VALUE);
+            list.add(val);
+        }
+        final byte[] ret = new byte[list.size()];
+        for(int i=0;i<list.size();i++) ret[i] = list.get(i);
+        return ret;
 	}
 }
