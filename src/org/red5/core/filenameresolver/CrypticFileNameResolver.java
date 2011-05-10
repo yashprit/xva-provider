@@ -24,17 +24,19 @@ public class CrypticFileNameResolver extends AFileNameResolver {
 		} catch (Exception e) {
 			IConnection currentConnection = Red5.getConnectionLocal();
 			currentConnection.getRemoteAddress();
+			log.warning(e.toString());
 			log.info("Invalid Password");
 		}
 		return null;
 	}
 	
 	private byte[] transformToSignedByte (String input){
+		input = input.substring(0,input.lastIndexOf("."));
 		final ArrayList<Byte> list = new ArrayList<Byte>();
         for(int i=0;i<input.length()/2;i++){
             final String element = input.substring(i*2, i*2+2);
-           final int k = Integer.parseInt(element, 16);
-          final  byte val = (byte)(k-Byte.MAX_VALUE);
+            final int k = Integer.parseInt(element, 16);
+            byte val = (byte)(k-Byte.MAX_VALUE);
             list.add(val);
         }
         final byte[] ret = new byte[list.size()];
