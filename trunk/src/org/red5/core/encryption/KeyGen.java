@@ -44,6 +44,7 @@ public class KeyGen implements Runnable {
 		KeyGenerator keygen = null;
 		try {
 			keygen = KeyGenerator.getInstance("AES");
+			keygen.init(128);
 		} catch (NoSuchAlgorithmException e1) {
 
 			e1.printStackTrace();
@@ -52,8 +53,8 @@ public class KeyGen implements Runnable {
 		while (true)
 			try {
 
-				SecureRandom random = new SecureRandom();
-				keygen.init(random);
+				//SecureRandom random = new SecureRandom();
+				//keygen.init(random);
 				setKey(keygen.generateKey());
 
 				log.info("Waiting for new Key... for " + Timeout.longValue()
