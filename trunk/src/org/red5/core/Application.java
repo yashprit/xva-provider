@@ -43,7 +43,13 @@ public class Application extends ApplicationAdapter {
 	}
 
 	public boolean connect(IConnection conn, IScope scope, Object[] params) {
-		return !BlackList.getInstance().isBlackListed(conn.getRemoteAddress());
+		if(BlackList.getInstance().isBlackListed(conn.getRemoteAddress())){
+		log.info("Refunsing connection: "+conn.getRemoteAddress());
+		return false;
+		}else {
+		return true;
+		}
+		//return !BlackList.getInstance().isBlackListed(conn.getRemoteAddress());
 	}
 
 	public void disconnect(IConnection conn, IScope scope) {

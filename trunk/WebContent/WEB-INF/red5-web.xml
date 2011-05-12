@@ -34,7 +34,7 @@
 	<bean id="web.handler" 
 	    class="org.red5.core.Application" 
 		singleton="true" >
-		<property name="ip" value="137.250.195.192"></property>
+		<property name="ip" value="localhost"></property>
 		<property name="port" value="5080"></property>
 		<property name="seksToSleep"  value="100"></property>
 		<property name="secret" value="Hallo!"></property>
@@ -47,7 +47,7 @@
 	private int Tries; -->	
 	<bean id="streamFilenameGenerator" class="org.red5.core.FileRedirector">
 	 <property name="dirs">
-	 	 <value>video:=/Users/philippklose/;video2:=/Users/philippklose</value>
+	 	 <value>video:=/Users/philippklose/</value>
 	 </property>	 
 	 <property name="bannTime" value="10"></property>
 	 <property name="Tries" value="5"></property>
