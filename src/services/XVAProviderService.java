@@ -1,9 +1,13 @@
 package services;
 
 import java.io.PrintStream;
+import java.util.logging.Logger;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
-import org.apache.log4j.Logger;
+
 import org.red5.core.encryption.KeyGen;
 import org.red5.core.encryption.WebServiceKeyPair;
 
@@ -12,7 +16,10 @@ public class XVAProviderService {
 	private static final WebServiceKeyPair wKeyPair = new WebServiceKeyPair();
 	private static final Logger log = Logger.getLogger(XVAProviderService.class.getName());
 
-	public byte[] encrypt(String url, byte[] keyphrase) {
+	
+	@WebMethod(operationName="encrypt")
+	public byte[] encrypt(@WebParam(name="arg0")String url, @WebParam(name="arg1")byte[] keyphrase) {
+		log.info("Getting Request with : "+url+" and :"+keyphrase);
 		try {
 
 			if (url != "" && wKeyPair.check(keyphrase)) {

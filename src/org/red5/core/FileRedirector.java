@@ -23,7 +23,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 	private static boolean inited = false;
 	private boolean secured;
 	private String secret;
-	private int liveTime;
+	
 	private int bannTime;
 	private int Tries;
 	private AFileNameResolver resolver = null;
@@ -52,13 +52,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		this.secret = secret;
 	}
 
-	public synchronized int getLiveTime() {
-		return this.liveTime;
-	}
-
-	public synchronized void setLiveTime(int liveTime) {
-		this.liveTime = liveTime;
-	}
+	
 
 	public synchronized int getBannTime() {
 		return this.bannTime;
@@ -83,16 +77,13 @@ public class FileRedirector implements IStreamFilenameGenerator {
 			map.put(splits[0], splits[1]);
 		}
 
-		KeyGen.SeksToSleep = getLiveTime();
-		log.info("Seks to sleep:="+ getLiveTime());
+		
 		KeyGen.getInstance();
 
 		BlackList.bannehours = getBannTime();
 		log.info("Bannhours :="+ this.getBannTime());
 		BlackList.Tries = getTries();
 		log.info("Tries till bann:= "+this.getTries());
-		WebServiceKeyPair.secret = getSecret();
-		log.info( "Succesfully loaded with Secret");
 		System.out.println("Started");
 		if (this.secured) {
 			log.info("Bind secured File Path Provider");
