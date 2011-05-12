@@ -74,7 +74,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		String[] tdir = this.dirs.split(";");
 		for (int i = 0; i < tdir.length; i++) {
 			String[] splits = tdir[i].split(":=");
-			log.info("Adding "+splits[0]+" to Folder map");
+			log.info("Adding "+splits[0]+" to folder-map with:"+splits[1]);
 			map.put(splits[0], splits[1]);
 		}
 

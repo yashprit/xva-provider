@@ -20,7 +20,7 @@ public class CrypticFileNameResolver extends AFileNameResolver {
 		try {
 			byte[] result = this.transformToSignedByte(inputString);
 			String path = KeyGen.getInstance().decrypt(result);
-			return path;
+			return super.resolve(path);			
 		} catch (Exception e) {
 			IConnection currentConnection = Red5.getConnectionLocal();
 			currentConnection.getRemoteAddress();
