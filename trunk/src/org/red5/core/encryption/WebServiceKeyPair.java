@@ -32,9 +32,9 @@ public class WebServiceKeyPair {
 	private static final String algorithm = "RSA";
 	public static String secret;
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		new WebServiceKeyPair();
-	}
+	}*/
 
 	public WebServiceKeyPair() {
 		init();
