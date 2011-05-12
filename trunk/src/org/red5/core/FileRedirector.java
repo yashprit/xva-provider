@@ -127,6 +127,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 			currentConnection.close();
 			log.info("Closing Connection and Warning Client");
 		}
+		log.info("Path :="+ret);
 		return ret;
 	}
 

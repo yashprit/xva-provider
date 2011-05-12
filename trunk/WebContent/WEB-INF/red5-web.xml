@@ -33,7 +33,10 @@
 	-->
 	<bean id="web.handler" 
 	    class="org.red5.core.Application" 
-		singleton="true" />
+		singleton="true" >
+		<property name="ip" value="localhost"></property>
+		<property name="port" value="5080"></property>
+		</bean>
 		
 	<!-- 	private boolean secured;
 	private String secret;
