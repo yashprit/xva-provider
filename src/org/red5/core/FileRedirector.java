@@ -74,6 +74,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		String[] tdir = this.dirs.split(";");
 		for (int i = 0; i < tdir.length; i++) {
 			String[] splits = tdir[i].split(":=");
+			log.info("Adding "+splits[0]+" to Folder map");
 			map.put(splits[0], splits[1]);
 		}
 
@@ -84,7 +85,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 		log.info("Bannhours :="+ this.getBannTime());
 		BlackList.Tries = getTries();
 		log.info("Tries till bann:= "+this.getTries());
-		System.out.println("Started");
+		
 		if (this.secured) {
 			log.info("Bind secured File Path Provider");
 			this.resolver = new CrypticFileNameResolver(map);

@@ -20,6 +20,7 @@ public class XVAProviderService {
 	@WebMethod(operationName="encrypt")
 	public byte[] encrypt(@WebParam(name="arg0")String url, @WebParam(name="arg1")byte[] keyphrase) {
 		log.info("Getting Request with : "+url+" and :"+keyphrase);
+		
 		try {
 
 			if (url != "" && wKeyPair.check(keyphrase)) {
