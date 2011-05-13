@@ -36,7 +36,7 @@
 		singleton="true" >
 		<property name="ip" value="localhost"></property>
 		<property name="port" value="5080"></property>
-		<property name="seksToSleep"  value="100"></property>
+		<property name="seksToSleep"  value="500"></property>
 		<property name="secret" value="Hallo!"></property>
 		</bean>
 		
