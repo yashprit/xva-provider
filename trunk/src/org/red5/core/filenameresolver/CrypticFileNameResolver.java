@@ -2,6 +2,7 @@ package org.red5.core.filenameresolver;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.red5.core.encryption.KeyGen;
@@ -24,7 +25,8 @@ public class CrypticFileNameResolver extends AFileNameResolver {
 		} catch (Exception e) {
 			IConnection currentConnection = Red5.getConnectionLocal();
 			currentConnection.getRemoteAddress();
-			log.warning(e.toString());
+			//log.warning(e.getStackTrace().toString());
+			log.log(Level.SEVERE,null, e);
 			log.info("Invalid Password");
 		}
 		return null;
