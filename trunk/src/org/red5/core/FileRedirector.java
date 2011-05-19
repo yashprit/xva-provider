@@ -18,8 +18,8 @@ import org.red5.server.api.stream.IStreamFilenameGenerator;
 public class FileRedirector implements IStreamFilenameGenerator {
 	private static final Logger log = Logger.getLogger(FileRedirector.class.getName());
 
-	private static final HashMap<String, String> map = new HashMap<String,String>(500);
-	private String dirs;
+	
+	
 	private static boolean inited = false;
 	private boolean secured;
 	private String secret;
@@ -28,14 +28,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 	private int Tries;
 	private AFileNameResolver resolver = null;
 
-	public String getDirs() {
-		return this.dirs;
-	}
-
-	public void setDirs(String dirs) {
-		this.dirs = dirs;
-	}
-
+	
 	public synchronized boolean isSecured() {
 		return this.secured;
 	}
@@ -71,13 +64,7 @@ public class FileRedirector implements IStreamFilenameGenerator {
 	}
 
 	private void load() {
-		String[] tdir = this.dirs.split(";");
-		for (int i = 0; i < tdir.length; i++) {
-			String[] splits = tdir[i].split(":=");
-			log.info("Adding "+splits[0]+" to folder-map with:"+splits[1]);
-			map.put(splits[0], splits[1]);
-		}
-
+		HashMap<String,String> map = Application.map;
 		
 		KeyGen.getInstance();
 
