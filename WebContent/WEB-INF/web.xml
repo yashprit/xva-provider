@@ -42,6 +42,14 @@
 		<servlet-class>org.red5.server.net.rtmpt.RTMPTServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+ 	<servlet>
+ 		<description>
+ 		Servlet for Progressive Http Streaming</description>
+ 		<display-name>ProgressiveHttpStreaming</display-name>
+ 		<servlet-name>ProgressiveHttpStreaming</servlet-name>
+ 		<servlet-class>
+ 		servlets.ProgressiveHttpStreaming</servlet-class>
+ 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>rtmpt</servlet-name>
@@ -66,6 +74,10 @@
 	<servlet-mapping>
 		<servlet-name>rtmpt</servlet-name>
 		<url-pattern>/idle/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProgressiveHttpStreaming</servlet-name>
+		<url-pattern>/ps</url-pattern>
 	</servlet-mapping>  
 
 	<!--

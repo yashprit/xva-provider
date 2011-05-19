@@ -36,8 +36,11 @@
 		singleton="true" >
 		<property name="ip" value="localhost"></property>
 		<property name="port" value="5080"></property>
-		<property name="seksToSleep"  value="500"></property>
+		<property name="seksToSleep"  value="600"></property>
 		<property name="secret" value="Hallo!"></property>
+		<property name="dirs">
+	 	 <value>video:=/Users/philippklose/</value>
+	    </property>	 
 		</bean>
 		
 	<!-- 	private boolean secured;
@@ -46,9 +49,7 @@
 	private int bannTime;
 	private int Tries; -->	
 	<bean id="streamFilenameGenerator" class="org.red5.core.FileRedirector">
-	 <property name="dirs">
-	 	 <value>video:=/Users/philippklose/</value>
-	 </property>	 
+	 
 	 <property name="bannTime" value="10"></property>
 	 <property name="Tries" value="5"></property>
 	 <property name="secured" value="true"></property>

@@ -33,6 +33,7 @@ public class CrypticFileNameResolver extends AFileNameResolver {
 	}
 	
 	private byte[] transformToSignedByte (String input){
+		if(input.contains("."))
 		input = input.substring(0,input.lastIndexOf("."));
 		final ArrayList<Byte> list = new ArrayList<Byte>();
         for(int i=0;i<input.length()/2;i++){

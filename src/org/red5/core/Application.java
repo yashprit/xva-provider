@@ -1,5 +1,6 @@
 package org.red5.core;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 import javax.xml.ws.Endpoint;
@@ -19,6 +20,9 @@ public class Application extends ApplicationAdapter {
 	private String port;
 	private int seksToSleep;
 	private String secret;
+	private String dirs;
+	
+	public static final HashMap<String, String> map = new HashMap<String,String>(500);
 	
 	public synchronized int getSeksToSleep() {
 		return seksToSleep;
@@ -36,6 +40,16 @@ public class Application extends ApplicationAdapter {
 		KeyGen.SeksToSleep = this.getSeksToSleep();
 		KeyGen.getInstance();
 		WebServiceKeyPair.secret = getSecret();
+		
+		String[] tdir = this.getDirs().split(";");
+		for (int i = 0; i < tdir.length; i++) {
+			String[] splits = tdir[i].split(":=");
+			log.info("Adding "+splits[0]+" to folder-map with:"+splits[1]);
+			map.put(splits[0], splits[1]);
+		}
+
+		
+		
 		log.info( "Succesfully loaded with Secret");
 
 		log.info("Started Server and publisehd Endpoint at:"+this.getIp()+":"+this.getPort());
@@ -78,5 +92,13 @@ public class Application extends ApplicationAdapter {
 
 	public String getSecret() {
 		return secret;
+	}
+
+	public void setDirs(String dirs) {
+		this.dirs = dirs;
+	}
+
+	public String getDirs() {
+		return dirs;
 	}
 }

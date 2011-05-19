@@ -22,5 +22,6 @@
 	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/jcl-over-slf4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/jul-to-slf4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/Users/philippklose/red5-1.0.0-RC1/lib/com.springsource.slf4j.bridge-1.6.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

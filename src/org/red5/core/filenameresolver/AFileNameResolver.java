@@ -33,6 +33,22 @@ public abstract class AFileNameResolver {
 
 		return filePath;
 	}
+	
+	public static String resolve(HashMap<String,String> dirs,String arg1){
+		int firstSlash = arg1.indexOf("/");
+		String dir = arg1.substring(0, firstSlash);
+		if ((dir == null) || (dir == "")) {
+			return null;
+		}
+		String folder = (String) dirs.get(dir);
+		if ((folder == null) || (folder == "")) {
+			return null;
+		}
+
+		String filePath = folder + arg1.substring(firstSlash + 1);
+
+		return filePath;
+	}
 
 	public abstract String getFileName(String paramString);
 }
