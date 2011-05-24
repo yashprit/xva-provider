@@ -129,13 +129,35 @@ public class ProgressiveHttpStreaming extends HttpServlet {
 
 	private static final String default_mimeType = "application/octet-stream";
 	private static final String video_mimeType = "video/mp4";
+	private static final String video_ogg = "video/ogg";
+	private static final String video_webm ="video/webm";
 
 	private void prepareResponseFor(HttpServletResponse response, File file) {
 		StringBuilder type = new StringBuilder("attachment; filename=");
 		type.append(file.getName());
 		response.setContentLength((int) file.length());
+		
 		response.setContentType(video_mimeType);
+		setMimeType(file, response);
+		
 		response.setHeader("Content-Disposition", type.toString());
+	}
+	
+	private void setMimeType (File file,HttpServletResponse response){
+		final String path = file.getPath().substring(file.getPath().lastIndexOf("."));
+		if(path != null){
+			if(path.contains("ogv")){
+				response.setContentType(video_ogg);
+				return;
+			}if(path.contains("webm")){
+				response.setContentType(video_webm);
+				return;
+			}if(path.contains("mp4")){
+				response.setContentType(video_mimeType);
+				return;
+			}
+		}
+		
 	}
 
 }
