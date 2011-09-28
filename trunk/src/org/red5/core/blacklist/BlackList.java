@@ -37,6 +37,8 @@ public class BlackList implements Runnable {
 		return instance;
 	}
 
+	
+	
 	public boolean warnIp(String ip) {
 		if (this.warned.containsKey(ip)) {
 			int level = ((Integer) this.warned.get(ip)).intValue();
